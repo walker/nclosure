@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+
+    <title>NClosure - Closure Tools on Node</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script src="scripts.js"></script>
+    <link href="prettify.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="prettify.js"></script>
+  </head>
+
+  <body class="content">
+    <h2>Closure Library</h2> 
+     
+    <p>For full details on utilities provided in the closure library refer to the
+    <a href="http://closure-library.googlecode.com/svn/docs/index.html">official docs</a>.
+    To use any utility provided in the closure library just:</p> 
+     
+    <ol> 
+      <li> 
+      <p>Include <code class="prettyprint">nclosure</code> in your application by <code class="prettyprint">require</code>(ing) it and initialising
+      it.</p> 
+       
+      <pre class="prettyprint">  
+      require('nclosure').nclosure(); // nclosure() initialises the framework
+      </pre> 
+      </li> 
+      <li> 
+      <p><code class="prettyprint">goog.require</code> any namespace from the Closure library.</p> 
+       
+      <pre class="prettyprint"> 
+      goog.require('goog.structs.Trie');
+      </pre> 
+      </li> 
+      <li> 
+      <p>That's it, use the imported namespaces anywhere in your file.</p> 
+       
+      <pre class="prettyprint"> 
+      var trie = new goog.structs.Trie();
+      </pre> 
+      </li> 
+    </ol>
+  </body>
+</html>
