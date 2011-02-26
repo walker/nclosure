@@ -1,0 +1,93 @@
+
+/** LOAD FONTS */
+@font-face {
+    font-family: 'QuicksandLight';
+    src: url('Quicksand_Book-webfont.eot');
+    src: url('Quicksand_Book-webfont.eot?iefix') format('eot'),
+         url('Quicksand_Book-webfont.woff') format('woff'),
+         url('Quicksand_Book-webfont.ttf') format('truetype'),
+         url('Quicksand_Book-webfont.svg#webfontbpxkzhcL') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/** GENERAL STYLES */
+
+body.home .title {
+  padding-top:100px;
+  font-size:55px;
+  height:200px;
+  text-align:center;
+}
+
+body.home .subtitle {
+  font-size:20px;
+  height:150px;
+  text-align:center;
+}
+
+body {
+  font-family:QuicksandLight;
+  margin:50px 0px; padding:0px;
+  text-align:center;
+}
+
+div.content {
+  margin:0px auto;
+  text-align:left;
+  border:1px dashed #333;
+  background-color:#eee;
+  padding:10px;
+  padding-right:40px;
+  width:880px;
+};
+
+a {
+  text-decoration:none;
+  color:black;
+}
+
+/** HEADER */
+
+.header {
+  border-bottom:solid 1px silver;
+  padding:5px;
+  text-align:center;
+}
+
+/** FOOTER */
+.fineprint {
+  top:200px;
+  clear:both;
+  border-top:dashed 1px silver;
+  padding:15px 5px 10px;
+  font-size:small;
+  text-align:center;
+}
+
+/** NAVIGATION */
+
+div.navigation {
+  margin-left:35px;
+}
+
+.navigation div {
+  cursor:pointer;
+  float:left;
+  padding:5px;
+  width:80px;
+  border:solid 2px gray;
+  background-color:#666;
+  margin:10px;
+  border-radius:10px;
+  text-align:center;
+}
+
+
+
+/** CODE BLOCKS */
+
+pre {
+  background-color:#111;
+}
