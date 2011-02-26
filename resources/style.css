@@ -48,6 +48,10 @@ a {
   color:black;
 }
 
+a:visited {
+  color:black;
+}
+
 /** HEADER */
 
 .header {
@@ -88,6 +92,7 @@ div.navigation {
 
 /** CODE BLOCKS */
 
-pre {
+.content pre.prettyprint {
+  padding-top:18px;
   background-color:#111;
 }

@@ -13,11 +13,19 @@ function initContentPages() {
 };
 
 function loadHeader() {
-  $('.content').prepend('<div class="header"><a href="index.html">NClosure - Closure Tools on Node</a></div>');
+  $('.content').prepend('<div class="header"><a href="index.html">NClosure - ' +
+                        'Closure Tools on Node</a></div>' +
+                        getNavHtml());
 };
 
 function loadFooter() {
-  $('.content').append('<div class="navigation">' +
+  var navhtml = getNavHtml();
+  $('.content').append(getNavHtml() +
+  '<div class="fineprint">NClosure is a <a title="Software Development Services" href="http://www.picnet.com.au">PicNet</a> Project</div>');
+};
+
+function getNavHtml() {
+  return '<div class="navigation">' +
     '<div class="overview">overview</div>' +
     '<div class="library">library</div>' +
     '<div class="compile">compile</div>' +
@@ -25,8 +33,7 @@ function loadFooter() {
     '<div class="document">document</div>' +
     '<div class="test">test</div>' +
     '<div class="tutorial">tutorial</div>' +
-  '</div>' +
-  '<div class="fineprint">NClosure is a <a title="Software Development Services" href="http://www.picnet.com.au">PicNet</a> Project</div>');
+  '</div>';
 };
 
 function initLinks() {
