@@ -4,9 +4,9 @@
     <h1>NClosure Tutorial</h1>
     <h2>Installing NClosure</h2>
     <p>
-      Installation is simple, you can use 'npm install nclosure' but I recommend
-      getting the sources.  This will allow you to read the nclosure source
-      which is a great example of closure style JavaScript.
+      Installation is simple, you can use <code>npm install nclosure</code> but
+      I recommend getting the sources.  This will allow you to read the nclosure
+      source which is a great example of closure style JavaScript.
     </p>
     <p>
       To install from sources just:
@@ -24,7 +24,7 @@ npm link
     </p>
     <p>
     Our application will be a simple command line application that lists all
-    files in the current directory recursively sorted by name.
+    files in the current directory recursively sorted by path name.
     </p>
     <pre>
 #!/usr/local/bin/node
@@ -74,6 +74,7 @@ demo.listfiles.prototype.getFilesInDir_ = function(files, dir) {
 // List the files in the current directory
 new demo.listfiles(__dirname);
     </pre>
+    <code><a href='tutorial/1/listfiles.js' target='blank'>source</a></code>
     <p>
       Ok, lets save that 'listfiles.js'. Now lets see if that compiles:
     </p>
@@ -93,7 +94,8 @@ JavaScript compilation succeeded.
     </p>
     <p>
       Once the source is compiling its time to try out our new console app.
-      Note: you will probably need to chmod on the file to make it executable.
+      Note: you will probably need to <code>chmod</code> on the file to make
+      it executable.
     </p>
     <pre>
       ./listfiles.js
@@ -131,6 +133,7 @@ demo.fileinfo.prototype.getFileInfo = function() {
     return goog.debug.expose(details);
 };
     </pre>
+    <code><a href='tutorial/2/fileinfo.js' target='blank'>source</a></code>
     <p>
       Now to use the class, lets apply the following changes to listfiles.js.
     </p>
@@ -143,7 +146,7 @@ require('nclosure').nclosure();
 // Lets declare our namespace 'demo.listfiles'.  Its always a good idea
 // to declare namespaces as polluting the global scope whilst not as
 // critical in the server is still a bad practice.
-goog.provide('demo.listfiles2');
+goog.provide('demo.listfiles');
 
 // Import some utilities from the closure libs
 goog.require('goog.array');
@@ -192,6 +195,7 @@ demo.listfiles.prototype.getFilesInDir_ = function(files, dir) {
 // List the files in the current directory
 new demo.listfiles(__dirname);
     </pre>
+    <code><a href='tutorial/2/listfiles.js' target='blank'>source</a></code>
     <p>
       Time to compile again.  This time we will pass the <code>-d</code> flag
       to the compiler. The <code>-d</code> flag tells the compiler to generate
@@ -206,8 +210,8 @@ nccompile -d listfiles.js
     </p>
     <h2>Test</h2>
     <p>
-      Testing JavaScript has never been easy but nclosure makes it less
-      painful.  Lets create a <code>test</code> directory where we will
+      NClosure makes testing JavaScript pretty easy.  Lets create a
+      <code>tests</code> directory where we will
       place a test file called <code>allTests.js</code>.
     </p>
     <pre>
@@ -219,12 +223,13 @@ require('nclosure').nclosure();
 goog.require('goog.testing.jsunit');
 goog.require('demo.fileinfo');
 
-// All tests with the name *test* will automatically be detected.
+// All tests with the name test* will automatically be detected.
 function testFileInfo() {
   var fi = new demo.fileinfo(__filename);
   assertNotNull(fi.getFileInfo());
 };
     </pre>
+    <code><a href='tutorial/2/tests/allTests.js' target='blank'>source</a></code>
     <p>
       This very simple tests just checks that file info is returning something
       when called with a real file.  Since we are now in a different directory
@@ -234,7 +239,7 @@ function testFileInfo() {
     </p>
     <p>
       To include the deps file you created above create a file named
-      <code>closure.json</code> with the following content.
+      <code>tests/closure.json</code> with the following content.
     </p>
     <pre>
       {
@@ -244,6 +249,7 @@ function testFileInfo() {
         additionalDeps: ['../deps.js']
       }
     </pre>
+    <code><a href='tutorial/2/tests/closure.json' target='blank'>source</a></code>
       Now we are ready to run the tests; to run the test you can do any of the
       following:
     </p>
@@ -269,16 +275,17 @@ nctest tests/
     <p>
       There is another option not mentioned above but you can also have test
       suite files that should be named *suite*.js.  These files are parsed
-      for an array variable named suite and all tests in this array are then
-      run. For instance we could add a test suite called
-      'tests/testingSuite.js'.
+      for an array variable named <code>suite</code> and all tests in this
+      array are then run. For instance we could add a test suite called
+      <code>tests/testingSuite.js</code>.
     </p>
     <pre>
 var suite = ['allTests.js'];
     </pre>
+    <code><a href='tutorial/2/tests/testingSuite.js' target='blank'>source</a></code>
     <p>
-      Thats it, all you need is a 'suite' variable.  You can run this test
-      suite just as you would a normal test.
+      Thats it, all you need is a <code>suite</code> variable.  You can run
+      this test suite just as you would a normal test.
     </p>
     <h2>Code Style</h2>
     <p>
@@ -322,8 +329,9 @@ var suite = ['allTests.js'];
        * @param {string} dir The directory to list files in.
        */
     </pre>
+    <code><a href='3/listfiles.js' target='blank'>source</a></code>
     <p>
-      Running <code>nctest .</code> again will pass now.
+      Running <code>ncstyle .</code> again will pass now.
     </p>
     <h2>Documentation</h2>
     <p>
@@ -336,7 +344,7 @@ var suite = ['allTests.js'];
     <p>
       You will see a warning but its safe to ignore, your docs did get
       generated successfully.  To have a look at them point your browser to
-      the <a href='docs/index.html' target='blank'>docs/index.html</a> file.
+      the <a href='tutorial/3/docs/index.html' target='blank'>docs/index.html</a> file.
     </p>
     <p>
       As you can see the docs are pretty plain.  To see a nice example of
@@ -346,7 +354,157 @@ var suite = ['allTests.js'];
       this page for an example of a
       <a href='http://gatapia.github.com/ncnode/symbols/node.fs.html'
         target='blank'>class level file</a>.
+    </p>
+    <p>
+      Now assuming our brand new api will be used the world over lets add
+      some docs that will make it trivial for anyone to use our api.  The new
+      files now look like this:
+    </p>
+    <pre>
+      #!/usr/local/bin/node
 
+      // We are now in closure mode
+      require('nclosure').nclosure();
+      <strong>
+      /**
+      * @name demo
+      * @namespace The demo namespace holds the API to the listfiles command
+      * which lists details of all files (Recursively) in the current directory.
+      * <em>Note:</em> This is part of the
+      * <a href='http://gatapia.github.com/nclosure/'
+      *    target='brank'>nclosure ducumentation.</a>.
+      * @see <a href='http://gatapia.github.com/nclosure/'
+      *    target='brank'>nclosure ducumentation.</a>
+      * @author guido@tapia.com.au (Guido Tapia)
+      */
+      </strong>
+      // Lets declare our namespace 'demo.listfiles'.  Its always a good idea
+      // to declare namespaces as polluting the global scope whilst not as
+      // critical in the server is still a bad practice.
+      goog.provide('demo.listfiles');
+
+      // Import some utilities from the closure libs
+      goog.require('demo.fileinfo');
+
+      // We need to 'include' our new class
+      goog.require('goog.array');
+
+
+      <strong>
+      /**
+      * This constructor intiates the process of listing the details of all files
+      * in the specified directory.
+      *
+      * <em>Note: </em> This constructor is not meant to be used programatically.
+      * Rather it is ment to be executed using a node shell.  Example:
+      * <pre>
+      *   ./listfiles
+      * </pre>
+      * That will list all the files in the current directory.
+      *
+      * @constructor
+      * @param {string} dir The directory to list.
+      */
+      </strong>
+      demo.listfiles = function(dir) {
+        // Import some node utils
+        this.fs_ = require('fs');
+        this.path_ = require('path');
+        var files = [];
+        this.getFilesInDir_(files, dir);
+        // Lets turn all of those file names into a useful information list
+        files = goog.array.map(files, function(f) {
+          return '\n' + f + '\n' + new demo.fileinfo(f).getFileInfo();
+        });
+        files.sort();
+        console.log(files.join('\n'));
+      };
+
+      <strong>
+      /**
+      * By default nclosure does not document any private member.  However this can
+      * be easily changed by changing the closure.json file in the nclosure/bin
+      * directory.  Add a <code>-p</code> argument to the
+      * additionalJSDocToolkitOptions array and docs for private memebers will be
+      * automatically generated.
+      *
+      * @private
+      * @param {Array.<string>} files The files array that will be augmented
+      *     recursively.
+      * @param {string} dir The directory to list files in.
+      */
+      </strong>
+      demo.listfiles.prototype.getFilesInDir_ = function(files, dir) {
+        var filesInDir = this.fs_.readdirSync(dir);
+        goog.array.forEach(filesInDir, function(f) {
+          var path = this.path_.resolve(dir, f);
+          if (this.fs_.statSync(path).isDirectory()) {
+            this.getFilesInDir_(files, path);
+          } else {
+            files.push(path);
+          }
+        }, this);
+      };
+
+      // List the files in the current directory
+      new demo.listfiles(__dirname);
+
+    </pre>
+    <code><a href='tutorial/4/listfiles.js' target='blank'>source</a></code>
+    <p>
+      And fileinfo.js:
+    </p>
+    <pre>
+      goog.provide('demo.fileinfo');
+
+      goog.require('goog.debug');
+
+      <strong>
+      /**
+      * @fileoverview This file is used to gather all the specified details for a
+      * specific path.
+      * @see <a href='http://gatapia.github.com/nclosure/'
+      *    target='brank'>nclosure ducumentation.</a>
+      * @author guido@tapia.com.au (Guido Tapia)
+      */
+      </strong>
+      <strong>
+      /**
+      * This constructor gathers all the details available for the specified path.
+      * To use just:
+      * <pre>
+      *  goog.require('demo.fileinfo');
+      *  ...
+      *  var path = ...; // A reference to an absolute path
+      *  var fi = new demo.fileinfo(path);
+      *  var info = fi.getFileInfo();
+      * </pre>
+      *
+      * @constructor
+      * @param {string} path The path that this instance of demo.fileinfo will
+      *    operate on.
+      */
+      </strong>
+      demo.fileinfo = function(path) {
+        this.fs_ = require('fs');
+        this.path_ = path;
+      };
+
+      <strong>
+      /**
+      * @return {string} A descriptive message with all the relevant information on
+      *    the specified path.
+      */
+      </strong>
+      demo.fileinfo.prototype.getFileInfo = function() {
+        var details = this.fs_.statSync(this.path_);
+        return goog.debug.expose(details);
+      };
+    </pre>
+    <p>
+      If we now run <code>ncdoc .</code> we get much
+      <a href='tutorial/4/docs/index.html' target='blank'>nicer, more informative
+      docs</a>.
     </p>
     <h2>Additional Resources</h2>
     <p>

@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>listfiles.js</title>
-<link rel="stylesheet" href="../../css/prettify.css" media="all"></link>
-<link rel="stylesheet" href="../../css/all.css" media="all"></link>
-<script src="../../javascript/all.js"></script>
-<script src="../../javascript/prettify.js"></script>
-</head><body onload="prePrettyPrint();"><pre>#!/usr/local/bin/node
+#!/usr/local/bin/node
 
 // We are now in closure mode
 require('nclosure').nclosure();
@@ -17,6 +9,9 @@ require('nclosure').nclosure();
 goog.provide('demo.listfiles');
 
 // Import some utilities from the closure libs
+goog.require('demo.fileinfo');
+
+// We need to 'include' our new class
 goog.require('goog.array');
 
 
@@ -31,6 +26,10 @@ demo.listfiles = function(dir) {
   this.path_ = require('path');
   var files = [];
   this.getFilesInDir_(files, dir);
+  // Lets turn all of those file names into a useful information list
+  files = goog.array.map(files, function(f) {
+    return '\n' + f + '\n' + new demo.fileinfo(f).getFileInfo();
+  });
   files.sort();
   console.log(files.join('\n'));
 };
@@ -38,8 +37,9 @@ demo.listfiles = function(dir) {
 
 /**
   * @private
-  * @param {Array.&lt;string>} files
-  * @param {string} dir
+  * @param {Array.<string>} files The files array that will be augmented
+  *     recursively.
+  * @param {string} dir The directory to list files in.
   */
 demo.listfiles.prototype.getFilesInDir_ = function(files, dir) {
   var filesInDir = this.fs_.readdirSync(dir);
@@ -55,4 +55,3 @@ demo.listfiles.prototype.getFilesInDir_ = function(files, dir) {
 
 // List the files in the current directory
 new demo.listfiles(__dirname);
-</pre></body></html>

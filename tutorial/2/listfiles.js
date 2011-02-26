@@ -6,7 +6,7 @@ require('nclosure').nclosure();
 // Lets declare our namespace 'demo.listfiles'.  Its always a good idea
 // to declare namespaces as polluting the global scope whilst not as
 // critical in the server is still a bad practice.
-goog.provide('demo.listfiles2');
+goog.provide('demo.listfiles');
 
 // Import some utilities from the closure libs
 goog.require('demo.fileinfo');

@@ -40,6 +40,8 @@
 		<nav>
 			<ul class="classList" id="ClassList">
 				
+					<li><a href="../symbols/demo.html">demo</a></li>
+				
 					<li><a href="../symbols/demo.fileinfo.html">demo<span class='break'> </span>.<span class='break'> </span>fileinfo</a></li>
 				
 					<li><a href="../symbols/demo.listfiles.html">demo<span class='break'> </span>.<span class='break'> </span>listfiles</a></li>
@@ -71,7 +73,7 @@
 					
 
 					
-						<li>Defined in: <a href="../symbols/src/listfiles3.js.html">listfiles3.js</a></li>
+						<li>Defined in: <a href="../symbols/src/listfiles.js.html">listfiles.js</a></li>
 					
 						
 				</ul>
@@ -95,7 +97,8 @@
 								<div class="fixedFont">
 									<b><a href="../symbols/demo.listfiles.html#constructor">demo.listfiles</a></b>(dir)
 								</div>
-								<div class="description"></div>
+								<div class="description">This constructor intiates the process of listing the details of all files
+in the specified directory.</div>
 							</td>
 						</tr>
 					</tbody>
@@ -128,7 +131,15 @@
 					</div>
 
 					<div class="description">
-						
+						This constructor intiates the process of listing the details of all files
+in the specified directory.
+
+<em>Note: </em> This constructor is not meant to be used programatically.
+Rather it is ment to be executed using a node shell.  Example:
+<pre>
+  ./listfiles
+</pre>
+That will list all the files in the current directory.
 						
 					</div>
 
