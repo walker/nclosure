@@ -3,8 +3,8 @@ $(document).ready(init);
 function init() {
   var iscontent = $(document.body).hasClass('content');
   if (iscontent) initContentPages();
-  initLinks();
   loadFooter();
+  initLinks();
 }
 
 function initContentPages() {
