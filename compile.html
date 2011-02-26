@@ -7,42 +7,42 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
     <script src="scripts.js"></script>
-    <link href="prettify.css" type="text/css" rel="stylesheet" />
+    <link href="prettify_wynn.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="prettify.js"></script>
   </head>
 
   <body class="content">
-    <h2>Closure Compiler</h2> 
-     
+    <h2>Closure Compiler</h2>
+
     <p>Using the <a href="http://code.google.com/closure/compiler/">Closure Compiler</a> requires
     a small investment in learning but once you have worked your way through the
     <a href="http://code.google.com/closure/compiler/">docs</a> you can take advantage of the
-    compiler's support for:</p> 
-     
-    <ul> 
-      <li>Enhanced Code Documentation</li> 
-      <li>Type Safety</li> 
-      <li>Encapsulation</li> 
-      <li>Modularisation</li> 
-      <li>Enhanced Inheritance and Interfaces</li> 
-      <li>Scalability</li> 
+    compiler's support for:</p>
+
+    <ul>
+      <li>Enhanced Code Documentation</li>
+      <li>Type Safety</li>
+      <li>Encapsulation</li>
+      <li>Modularisation</li>
+      <li>Enhanced Inheritance and Interfaces</li>
+      <li>Scalability</li>
       </ul><p>Once your source code is
-      <a href="http://code.google.com/closure/compiler/docs/js-for-compiler.html">annotated</a> 
-      and ready for compilation just run the following command:</p> 
-       
-      <pre class="prettyprint">    
+      <a href="http://code.google.com/closure/compiler/docs/js-for-compiler.html">annotated</a>
+      and ready for compilation just run the following command:</p>
+
+      <pre>
       nccompile source.js
-      </pre> 
-       
-      <p>The <code class="prettyprint">nccompile</code> command accepts various arguments:</p> 
-       
-      <ul> 
+      </pre>
+
+      <p>The <code>nccompile</code> command accepts various arguments:</p>
+
+      <ul>
       <li>-c: Create [C]ompile file - Produces a compiled .min.js file.
       Running your code using the compiled js file optimises your code and
       reduces the number of imports your system does hence improving start up
-      time.</li> 
+      time.</li>
       <li>-d: Create [D]ependencies- Creates a deps.js file that can be used as an
-      additionalDeps in an external project.</li> 
-    </ul>    
+      additionalDeps in an external project.</li>
+    </ul>
   </body>
 </html>

@@ -1,5 +1,62 @@
-* {}
+/** GENERAL STYLES */
+
+body {
+  font-family:arial;
+}
+
+body.content {
+  width:880px;
+  align:center;
+  border: dashed 2px silver;
+  padding:5px;
+  margin:50px 0px 50px 0px;
+  margin-left:50px;
+}
+
+a {
+  text-decoration:none;
+  color:black;
+}
+
+/** HEADER */
+
+.header {
+  border-bottom:solid 1px silver;
+  padding:5px;
+  text-align:center;
+}
+
+/** FOOTER */
+.fineprint {
+  clear:both;
+  border-top:dashed 1px silver;
+  padding:5px;
+  font-size:small;
+  text-align:center;
+}
+
+/** NAVIGATION */
+
+div.navigation {
+  margin-left:75px;
+}
 
 .navigation div {
   cursor:pointer;
-};
+  float:left;
+  padding:5px;
+  width:70px;
+  border:solid 2px gray;
+  background-color:#666;
+  margin:10px;
+  border-radius:10px;
+  text-align:center;
+}
+
+
+
+/** CODE BLOCKS */
+
+pre {
+  background-color:#111;
+}

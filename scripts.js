@@ -8,12 +8,12 @@ function init() {
 }
 
 function initContentPages() {
-  if (typeof (prettyPrint) !== 'undefined') { prettyPrint(); }
+  if (typeof (prettyPrint) !== 'undefined') { prePrettyPrint(); }
   loadHeader();
 };
 
 function loadHeader() {
-  $(document.body).prepend('<div class="header">NClosure - Closure Tools on Node</div>');
+  $(document.body).prepend('<div class="header"><a href="index.html">NClosure - Closure Tools on Node</a></div>');
 };
 
 function loadFooter() {
@@ -38,4 +38,21 @@ function initLinks() {
 
 function navigateTo() {
   document.location.href = this.className + '.html';
+};
+
+function prePrettyPrint() {
+  addPrettyPrintClassTo(document.getElementsByTagName('pre'), true);
+  // addPrettyPrintClassTo(document.getElementsByTagName('code'), false);
+  prettyPrint();
+};
+
+function addPrettyPrintClassTo(arr, escape) {
+  for (var i = 0, len = arr.length; i < len; i++) {
+      var e = arr[i];
+      if (!e) continue;
+      if (escape) e.innerHTML = e.innerHTML.replace(/\</g, '&lt;');
+      if (!e.className) e.className = 'prettyprint';
+      else if (e.className.indexOf('prettyprint') < 0)
+        e.className += ' prettyprint';
+  }
 };

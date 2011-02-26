@@ -6,70 +6,70 @@
     <title>NClosure - Closure Tools on Node</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-    <script src="scripts.js"></script>
-    <link href="prettify.css" type="text/css" rel="stylesheet" />
+    <link href="prettify_wynn.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="prettify.js"></script>
+    <script src="scripts.js"></script>
   </head>
 
   <body class="content">
-    <h2>Overview</h2> 
- 
+    <h2>Overview</h2>
+
     <p>The <a href="http://code.google.com/closure/">Google Closure Tools</a> are a powerful set
     of utilities that aim to make large scale JavaScript development more
     manageable.  This project brings the power of the closure tools to the
-    <a href="http://www.nodejs.org">node</a> 
+    <a href="http://www.nodejs.org">node</a>
     platform. The closure tools gives developers the utilities required to improve
-    code design and maintainability by providing support for:</p> 
-     
-    <ul> 
-    <li>Enhanced Modularisation (Both logically and physically)</li> 
-    <li>Better Encapsulation</li> 
-    <li>Type Safety</li> 
-    <li>Interfaces and Mixins</li> 
-    <li>Rich Source Documentation</li> 
+    code design and maintainability by providing support for:</p>
+
+    <ul>
+    <li>Enhanced Modularisation (Both logically and physically)</li>
+    <li>Better Encapsulation</li>
+    <li>Type Safety</li>
+    <li>Interfaces and Mixins</li>
+    <li>Rich Source Documentation</li>
     <li>A Huge Library of Production Ready Utilities, including:
-     
-    <ul> 
-    <li>Collections / Arrays</li> 
-    <li>Testing / Mocking</li> 
-    <li>Async Development</li> 
-    <li>Encryption</li> 
-    <li>Date / Date Range Support</li> 
-    <li>Events</li> 
-    <li>Internationalisation</li> 
-    <li>Locale</li> 
-    <li>Math</li> 
-    <li>String</li> 
-    <li>Structs</li> 
-    <li><a href="http://closure-library.googlecode.com/svn/docs/index.html">More...</a></li> 
-    </ul> 
-    </li> 
-    </ul><h2>Installation (core)</h2> 
-     
-    <ul> 
-    <li> 
-    <p>Install <code class="prettyprint">nclosure</code>.  By getting the source (NPM install comming soon):</p> 
-     
-    <pre class="prettyprint">      
+
+    <ul>
+    <li>Collections / Arrays</li>
+    <li>Testing / Mocking</li>
+    <li>Async Development</li>
+    <li>Encryption</li>
+    <li>Date / Date Range Support</li>
+    <li>Events</li>
+    <li>Internationalisation</li>
+    <li>Locale</li>
+    <li>Math</li>
+    <li>String</li>
+    <li>Structs</li>
+    <li><a href="http://closure-library.googlecode.com/svn/docs/index.html">More...</a></li>
+    </ul>
+    </li>
+    </ul><h2>Installation (core)</h2>
+
+    <ul>
+    <li>
+    <p>Install <code>nclosure</code>.  By getting the source (NPM install comming soon):</p>
+
+    <pre>
     git clone git://github.com/gatapia/nclosure.git
     cd nclosure
     npm link
-    </pre> 
+    </pre>
 
-      
-     <h2>Advanced Configuration</h2> 
- 
-    <p><code class="prettyprint">nclosure</code> can be configured in several ways.  The easiest is to modify the
-    <code class="prettyprint">bin/closure.json</code> file with your global settings.  Settings here can be
-    extended by placing a <code class="prettyprint">closure.json</code> file in your source directory. You can
-    also place a <code class="prettyprint">closure.json</code> in the directory running <code class="prettyprint">node</code> (The cwd).</p> 
-     
-    <p>Finally, <code class="prettyprint">nclosure</code> can also be configured by passing an optional options
-    object to the <code class="prettyprint">require('nclosure').nclosure(opts);</code> call.</p> 
-     
-    <p>All configuration files and configuration objects take the following format:</p> 
-     
-    <pre class="prettyprint">    
+
+     <h2>Advanced Configuration</h2>
+
+    <p><code>nclosure</code> can be configured in several ways.  The easiest is to modify the
+    <code>bin/closure.json</code> file with your global settings.  Settings here can be
+    extended by placing a <code>closure.json</code> file in your source directory. You can
+    also place a <code>closure.json</code> in the directory running <code>node</code> (The cwd).</p>
+
+    <p>Finally, <code>nclosure</code> can also be configured by passing an optional options
+    object to the <code>require('nclosure').nclosure(opts);</code> call.</p>
+
+    <p>All configuration files and configuration objects take the following format:</p>
+
+    <pre>
     {
       closureBasePath: Location of the closure-library.  This defaults to
         the closure library included in this package.
@@ -98,49 +98,49 @@
         if you are contributing to the nclosure project or would like to
         update your node-extern files.
     }
-    </pre> 
-     
+    </pre>
+
     <p>Note: All paths can be absolute or relative to the location of the current
-    settings file.</p> 
-     
-    <h2>More Help</h2> 
-     
+    settings file.</p>
+
+    <h2>More Help</h2>
+
     <p>The best way to get going with nclosure is to look at the nclosure code (bin,
     lib and examples directories).  All nclosure code is annotated and should
-    give you a good introduction to what can be acchieved with the tool.</p> 
-     
+    give you a good introduction to what can be acchieved with the tool.</p>
+
     <p>If you have any questions, issues, complaints, suggestions, .... just email me
-    (guido@tapia.com.au) and I'll see what I can do to help.</p> 
-     
-    <h2>Kown Limitations</h2> 
-     
+    (guido@tapia.com.au) and I'll see what I can do to help.</p>
+
+    <h2>Kown Limitations</h2>
+
     <p>Since the Node.js core libs are not jsdoc'ed in any way I could not give any
-    type safety when using these core libs.</p> 
-     
+    type safety when using these core libs.</p>
+
     <p>The documentation template is lacking in several areas this will be improved
-    in the future.</p> 
-     
-    <p>Linter is a pain to instal.</p> 
-     
-    <p>Poor project documentation.</p> 
-     
+    in the future.</p>
+
+    <p>Linter is a pain to instal.</p>
+
+    <p>Poor project documentation.</p>
+
     <p>For an up to date list of issues see the TODO.txt file.  Later I will start an
-    issues list on github.</p> 
-     
-    <h2>License</h2> 
-     
-    <p>Copyright 2011 Guido Tapia (guido@tapia.com.au)</p> 
-     
+    issues list on github.</p>
+
+    <h2>License</h2>
+
+    <p>Copyright 2011 Guido Tapia (guido@tapia.com.au)</p>
+
     <p>Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at</p> 
-     
-    <p>http://www.apache.org/licenses/LICENSE-2.0</p> 
-     
+    You may obtain a copy of the License at</p>
+
+    <p>http://www.apache.org/licenses/LICENSE-2.0</p>
+
     <p>Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
-    limitations under the License.</p></div>       
+    limitations under the License.</p></div>
   </body>
 </html>

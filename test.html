@@ -7,67 +7,67 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
     <script src="scripts.js"></script>
-    <link href="prettify.css" type="text/css" rel="stylesheet" />
+    <link href="prettify_wynn.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="prettify.js"></script>
   </head>
 
   <body class="content">
-    <h2>Closure Testing</h2> 
-     
-    <p><code class="prettyprint">nclosure</code> supports testing using Closure's 'goog.testing.jsunit' test tools.
-    To set up a unit test simply create a test file like:</p> 
-     
-    <pre class="prettyprint">
+    <h2>Closure Testing</h2>
+
+    <p><code>nclosure</code> supports testing using Closure's 'goog.testing.jsunit' test tools.
+    To set up a unit test simply create a test file like:</p>
+
+    <pre>
     #!/usr/local/bin/node
     // You can now run the test just by executing this file
     require('nclosure').nclosure();
-     
+
     goog.require('goog.testing.jsunit');
     // Import the code you are testing (may need an additionalDeps defined)
     goog.require('nclosure.examples.simple.Example');
-     
+
     // Any testXXX function are auto-discovered and run
     var testFunction1 = function() {
       assertNotEquals(typeof(example_), 'undefined');
     };
-     
+
     // Also auto discovered
     function testFunction2() {
       assertTrue(false);
     }
-    </pre> 
-     
+    </pre>
+
     <p>If the tests are not in the same directory as your code you will have to
     ensure that the deps.js file of the code you are testing
     is declared in the closure.json file of the tests directory or passed in to the
-    call to <code class="prettyprint">nclosure();</code> like:</p> 
-     
-    <pre class="prettyprint">
+    call to <code>nclosure();</code> like:</p>
+
+    <pre>
     require('nclosure').nclosure({additionalDeps:['/pathToDeps/deps.js']});
-    </pre> 
-     
-    <p>To run a single test just execute:</p> 
-     
-    <pre class="prettyprint">
+    </pre>
+
+    <p>To run a single test just execute:</p>
+
+    <pre>
     ./testSourceFile.js &lt;optionalTestName&gt;
-    </pre> 
-     
+    </pre>
+
     <p>To run all tests (files with the word test or suite in them) in a single
-    directory (recursive) run the following command:</p> 
-     
-    <pre class="prettyprint">  
+    directory (recursive) run the following command:</p>
+
+    <pre>
     nctest &lt;dirname&gt;
-    </pre> 
-     
+    </pre>
+
     <p>The testing framework also supports test suite files.  If you want to have a
     test suite simply have an array var named suite with the files to test
-    (relative to the suite file).  I.e.</p> 
-     
-    <pre class="prettyprint">  
+    (relative to the suite file).  I.e.</p>
+
+    <pre>
     // Run all the tests inside the '../examples/simple/' directory
     // This array can be directories or specific test (or other suite)
     // files
     var suite = ['../examples/simple/'];
-    </pre> 
+    </pre>
   </body>
 </html>
