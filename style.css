@@ -1,17 +1,31 @@
 /** GENERAL STYLES */
 
-body {
-  font-family:arial;
+body.home .title {
+  font-size:55px;
+  height:200px;
+  text-align:center;
 }
 
-body.content {
-  width:880px;
-  align:center;
-  border: dashed 2px silver;
-  padding:5px;
-  margin:50px 0px 50px 0px;
-  margin-left:50px;
+body.home .subtitle {
+  font-size:20px;
+  height:200px;
+  text-align:center;
 }
+
+body {
+  font-family:arial;
+  margin:50px 0px; padding:0px;
+  text-align:center;
+}
+
+div.content {
+  margin:0px auto;
+  text-align:left;
+  border:1px dashed #333;
+  background-color:#eee;
+  padding:10px;
+  width:880px;
+};
 
 a {
   text-decoration:none;

@@ -2,22 +2,22 @@ $(document).ready(init);
 
 function init() {
   var iscontent = $(document.body).hasClass('content');
-  if (iscontent) initContentPages();
+  if (typeof (prettyPrint) !== 'undefined') initContentPages();
   loadFooter();
   initLinks();
 }
 
 function initContentPages() {
-  if (typeof (prettyPrint) !== 'undefined') { prePrettyPrint(); }
+  prePrettyPrint();
   loadHeader();
 };
 
 function loadHeader() {
-  $(document.body).prepend('<div class="header"><a href="index.html">NClosure - Closure Tools on Node</a></div>');
+  $('.content').prepend('<div class="header"><a href="index.html">NClosure - Closure Tools on Node</a></div>');
 };
 
 function loadFooter() {
-  $(document.body).append('<div class="navigation">' +
+  $('.content').append('<div class="navigation">' +
     '<div class="overview">overview</div>' +
     '<div class="library">library</div>' +
     '<div class="compile">compile</div>' +
