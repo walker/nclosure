@@ -57,7 +57,11 @@ function addPrettyPrintClassTo(arr, escape) {
   for (var i = 0, len = arr.length; i < len; i++) {
       var e = arr[i];
       if (!e) continue;
-      if (escape) e.innerHTML = e.innerHTML.replace(/\</g, '&lt;');
+      if (escape) {
+        e.innerHTML = e.innerHTML.
+          replace(/<pre/g, '&lt;pre').
+          replace(/\.</g, '.&lt;');;
+      }
       if (!e.className) e.className = 'prettyprint';
       else if (e.className.indexOf('prettyprint') < 0)
         e.className += ' prettyprint';

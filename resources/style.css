@@ -97,3 +97,7 @@ div.navigation {
   padding-top:18px;
   background-color:#111;
 }
+
+pre.prettyprint strong {
+  background-color:#303;
+};
