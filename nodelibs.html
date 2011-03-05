@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+
+   <title>NClosure - Closure Tools on Node</title>
+    <link rel="stylesheet" type="text/css" href="resources/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script src="resources/scripts.js"></script>
+    <link href="resources/prettify_wynn.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="resources/prettify.js"></script>
+  </head>
+
+  <body><div class="content">
+    <h2>Node Core Lib Wrappers</h2>
+
+    <p>NClosure also provides you with a set of wrappers that allow you to use
+    the Node.js core libs as type safe Closure annotated classes.</p>
+    <p>
+    To use the type-safe Node.js libs just:
+    </p>
+    <pre>
+    require('nclosure').nclosure(); // Initialise the framework
+
+    goog.provide('namespace');
+
+    goog.require('goog.array');
+
+    goog.require('node.fs'); // All node libs are in the "node" namepsace
+
+    // Now just use the node utilties and benefit from type checking and
+    // all other benefits of closure annotated code.
+    console.log('Files in directory: ' + node.fs.readdirAsync('.'));
+    </pre>
+  </div></body>
+</html>

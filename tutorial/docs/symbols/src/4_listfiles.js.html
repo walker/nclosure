@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>4_listfiles.js</title>
+<link rel="stylesheet" href="../../css/prettify_wynn.css" media="all"></link>
+<link rel="stylesheet" href="../../css/all.css" media="all"></link>
+<script src="../../javascript/all.js"></script>
+<script src="../../javascript/prettify.js"></script>
+</head><body onload="prePrettyPrint();"><pre>#!/usr/local/bin/node
+
+// We are now in closure mode
+require('nclosure').nclosure();
+
+/**
+ * @name demo
+ * @namespace The demo namespace holds the API to the listfiles command
+ * which lists details of all files (Recursively) in the current directory.
+ * &lt;em>Note:&lt;/em> This is part of the
+ * &lt;a href='http://gatapia.github.com/nclosure/'
+ *    target='brank'>nclosure ducumentation.&lt;/a>.
+ * @see &lt;a href='http://gatapia.github.com/nclosure/'
+ *    target='brank'>nclosure ducumentation.&lt;/a>
+ * @author guido@tapia.com.au (Guido Tapia)
+ */
+
+// Lets declare our namespace 'demo.listfiles'.  Its always a good idea
+// to declare namespaces as polluting the global scope whilst not as
+// critical in the server is still a bad practice.
+goog.provide('demo.listfiles');
+
+// Import some utilities from the closure libs
+goog.require('demo.fileinfo');
+
+// We need to 'include' our new class
+goog.require('goog.array');
+
+// Import the fs package from the node core libs.  Using the 'node.js'
+// goog.require rather than the node 'require' allows this code to be
+// compile checked.
+goog.require('node.fs');
+goog.require('node.path');
+
+/**
+ * This constructor intiates the process of listing the details of all files
+ * in the specified directory.
+ *
+ * &lt;em>Note: &lt;/em> This constructor is not meant to be used programatically.
+ * Rather it is ment to be executed using a node shell.  Example:
+ * &lt;pre>
+ *   ./listfiles
+ * &lt;/pre>
+ * That will list all the files in the current directory.
+ *
+ * @constructor
+ * @param {string} dir The directory to list.
+ */
+demo.listfiles = function(dir) {
+  var files = [];
+  this.getFilesInDir_(files, dir);
+  // Lets turn all of those file names into a useful information list
+  files = goog.array.map(files, function(f) {
+    return '\n' + f + '\n' + new demo.fileinfo(f).getFileInfo();
+  });
+  files.sort();
+  console.log(files.join('\n'));
+};
+
+
+/**
+ * By default nclosure does not document any private member.  However this can
+ * be easily changed by changing the closure.json file in the nclosure/bin
+ * directory.  Add a &lt;code>-p&lt;/code> argument to the
+ * additionalJSDocToolkitOptions array and docs for private memebers will be
+ * automatically generated.
+ *
+ * @private
+ * @param {Array.&lt;string>} files The files array that will be augmented
+ *     recursively.
+ * @param {string} dir The directory to list files in.
+ */
+demo.listfiles.prototype.getFilesInDir_ = function(files, dir) {
+  var filesInDir = node.fs.readdirSync(dir);
+  goog.array.forEach(filesInDir, function(f) {
+    var path = node.path.resolve(dir, f);
+    if (node.fs.statSync(path).isDirectory()) {
+      this.getFilesInDir_(files, path);
+    } else {
+      files.push(path);
+    }
+  }, this);
+};
+
+// List the files in the current directory
+new demo.listfiles(__dirname);
+</pre></body></html>
