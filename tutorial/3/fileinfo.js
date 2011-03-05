@@ -3,6 +3,10 @@ goog.provide('demo.fileinfo');
 
 goog.require('goog.debug');
 
+// Import the fs package from the node core libs.  Using the 'node.js'
+// goog.require rather than the node 'require' allows this code to be
+// compile checked.
+goog.require('node.fs');
 
 
 /**
@@ -11,7 +15,6 @@ goog.require('goog.debug');
  *    operate on.
  */
 demo.fileinfo = function(path) {
-  this.fs_ = require('fs');
   this.path_ = path;
 };
 
@@ -21,6 +24,6 @@ demo.fileinfo = function(path) {
  *    the specified path.
  */
 demo.fileinfo.prototype.getFileInfo = function() {
-  var details = this.fs_.statSync(this.path_);
+  var details = node.fs.statSync(this.path_);
   return goog.debug.expose(details);
 };

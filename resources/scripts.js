@@ -28,6 +28,7 @@ function getNavHtml() {
   return '<div class="navigation">' +
     '<div class="overview">overview</div>' +
     '<div class="library">library</div>' +
+    '<div class="nodelibs">node wrappers</div>' +
     '<div class="compile">compile</div>' +
     '<div class="style">style</div>' +
     '<div class="document">document</div>' +

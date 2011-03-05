@@ -14,16 +14,17 @@ goog.require('demo.fileinfo');
 // We need to 'include' our new class
 goog.require('goog.array');
 
-
+// Import the fs package from the node core libs.  Using the 'node.js'
+// goog.require rather than the node 'require' allows this code to be
+// compile checked.
+goog.require('node.fs');
+goog.require('node.path');
 
 /**
   * @constructor
   * @param {string} dir The directory to list.
   */
 demo.listfiles = function(dir) {
-  // Import some node utils
-  this.fs_ = require('fs');
-  this.path_ = require('path');
   var files = [];
   this.getFilesInDir_(files, dir);
   // Lets turn all of those file names into a useful information list
@@ -42,10 +43,10 @@ demo.listfiles = function(dir) {
   * @param {string} dir The directory to list files in.
   */
 demo.listfiles.prototype.getFilesInDir_ = function(files, dir) {
-  var filesInDir = this.fs_.readdirSync(dir);
+  var filesInDir = node.fs.readdirSync(dir);
   goog.array.forEach(filesInDir, function(f) {
-    var path = this.path_.resolve(dir, f);
-    if (this.fs_.statSync(path).isDirectory()) {
+    var path = node.path.resolve(dir, f);
+    if (node.fs.statSync(path).isDirectory()) {
       this.getFilesInDir_(files, path);
     } else {
       files.push(path);

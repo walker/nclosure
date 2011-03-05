@@ -75,13 +75,15 @@ a:visited {
 
 div.navigation {
   margin-left:35px;
+  height:60px;
 }
 
 .navigation div {
+  font-size:small;
   cursor:pointer;
   float:left;
   padding:5px;
-  width:80px;
+  width:70px;
   border:solid 2px gray;
   background-color:#666;
   margin:10px;
