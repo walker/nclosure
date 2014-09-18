@@ -163,7 +163,7 @@ node.path.exists = function(path, callback) {
  * @param {string} path
  */
 node.path.existsSync = function(path) {
-  return node.path.core_.existsSync(path);
+  return node.fs.core_.existsSync(path);
 };
 
 
